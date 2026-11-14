@@ -36,3 +36,4 @@ public class AuthResponse {
     public Long getSchoolId() { return schoolId; }
     public void setSchoolId(Long schoolId) { this.schoolId = schoolId; }
 }
+

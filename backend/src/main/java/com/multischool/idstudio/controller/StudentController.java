@@ -44,3 +44,4 @@ public class StudentController {
         return ResponseEntity.notFound().build();
     }
 }
+

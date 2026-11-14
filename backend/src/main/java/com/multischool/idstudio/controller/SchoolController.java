@@ -67,3 +67,4 @@ public class SchoolController {
         return ResponseEntity.notFound().build();
     }
 }
+

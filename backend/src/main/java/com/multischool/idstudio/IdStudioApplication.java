@@ -10,3 +10,4 @@ public class IdStudioApplication {
         SpringApplication.run(IdStudioApplication.class, args);
     }
 }
+

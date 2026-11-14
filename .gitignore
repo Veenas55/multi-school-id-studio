@@ -1,0 +1,9 @@
+# Dependencies & Builds
+node_modules/
+dist/
+target/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log

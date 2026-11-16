@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Building2, 
   Plus, 
@@ -18,12 +18,27 @@ import {
   X
 } from 'lucide-react';
 import { SAMPLE_SCHOOLS } from '../data/mockData';
+import { fetchSchools } from '../services/api';
 
 export default function SchoolSelection({ userSession, onSelectSchool, onLogout }) {
   const [schools, setSchools] = useState(SAMPLE_SCHOOLS);
   const [searchQuery, setSearchQuery] = useState('');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingSchoolId, setEditingSchoolId] = useState(null);
+
+  useEffect(() => {
+    async function loadSchools() {
+      const liveSchools = await fetchSchools();
+      if (liveSchools && liveSchools.length > 0) {
+        setSchools(liveSchools.map(s => ({
+          ...s,
+          code: s.schoolCode || s.code || `SCH-${s.id}`,
+          logo: s.logoUrl || s.logo || 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=160&auto=format&fit=crop&q=80'
+        })));
+      }
+    }
+    loadSchools();
+  }, []);
   
   // New / Edit School Form state
   const [formData, setFormData] = useState({

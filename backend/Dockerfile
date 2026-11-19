@@ -14,12 +14,10 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 # Expose the server port
-
 EXPOSE 8080
 
 # Copy the built JAR file from the build stage
 COPY --from=build /app/target/*.jar app.jar
 
 # Run the Spring Boot application
-ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT:-8080}", "-jar app.jar"]
-
+ENTRYPOINT ["java", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]

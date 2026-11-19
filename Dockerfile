@@ -14,6 +14,5 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 EXPOSE 8080
 
-COPY --from=build /app/target/idstudio-backend-1.0.0.jar app.jar
+COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
-

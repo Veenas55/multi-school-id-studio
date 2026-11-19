@@ -1,5 +1,5 @@
 // API Configuration for Multi-School ID Studio
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://multi-school-id-studio.onrender.com';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 export async function fetchSchools() {
   try {
@@ -26,4 +26,3 @@ export async function loginUser(passcode, mobileNumber, role) {
     return null;
   }
 }
-

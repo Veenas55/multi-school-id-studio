@@ -16,3 +16,4 @@ EXPOSE 8080
 
 COPY --from=build /app/target/idstudio-backend-1.0.0.jar app.jar
 ENTRYPOINT ["java", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
+
